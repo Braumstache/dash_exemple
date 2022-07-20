@@ -1,3 +1,4 @@
+from tkinter import CENTER
 from dash import Dash, dcc, html, Input, Output, State, dash_table
 import plotly.express as plt
 import plotly.graph_objects as go
@@ -22,16 +23,15 @@ table=html.Div(children=[
             dcc.Dropdown(id="choix_reg",
                         options=dftable1['region'].unique(), 
                         value=""),
-                        #  multi=True,
-            html.Br(),
-            
+                        ]),
+        dbc.Col([   
             dbc.Label('Département(s) :'),
-            dcc.Dropdown(id="choix_dep"),
-            html.Br(),
-            
+            dcc.Dropdown(id="choix_dep"),]),
+        dbc.Col([    
             dbc.Label('Ville(s) :'),
-            dcc.Dropdown(id="choix_vil")
-        ],width=3) ,
+            dcc.Dropdown(id="choix_vil")])
+        ]),
+        html.Br(),
            
         dbc.Col([
             dash_table.DataTable(id='table',
@@ -40,11 +40,11 @@ table=html.Div(children=[
                                 style_table={'border': 'thin lightgrey solid'},
                                 style_header={'backgroundColor':'lightgrey','fontWeight':'bold','textAlign':'center'},
                                 style_cell={'textAlign':'left','width':'12%'})
-        ],width=8)        
+        ],width={"size": 10, "offset": 1})        
         
-    ],justify='center') 
+    ]) 
             
-])
+
 
  
 

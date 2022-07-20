@@ -11,7 +11,7 @@ import plotly.express as px
 def carte_france(choix_carbu):
     df1=dfmap[dfmap.carburant==choix_carbu]
     
-    with open('./demo/data/a-dep2021.json') as fp:
+    with open('dash_exemple/demo/data/a-dep2021.json') as fp:
         
         geo = json.load(fp)
 
